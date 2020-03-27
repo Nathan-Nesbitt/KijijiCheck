@@ -10,14 +10,87 @@ function sendMessageToTabs(tabs) {
       ).then(response => {
         var url = Object.keys(response)[0];
 
+        // Create the HTML elements //
+
+        var current = document.getElementById("current");
+        var historical = document.getElementById("historical");
+
+        var make = document.createElement('p');
+        var text = document.createElement('b');
+        text.appendChild(document.createTextNode("Make: "));
+        make.appendChild(text);
+        
+        var year = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Year: "));
+        year.appendChild(text);
+
+        var model = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Model: "));
+        model.appendChild(text);
+
+        var milage = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Milage: "));
+        milage.appendChild(text);
+        
+        
+        var cost = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Cost: "));
+        cost.appendChild(text);
+
+        var condition = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Condition: "));
+        condition.appendChild(text);
+
+        var averageCostForModelEL = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Average / Model: "));
+        averageCostForModelEL.appendChild(text);
+
+        var averageCostForModelAndYearEL = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Average / Model and Year: "));
+        averageCostForModelAndYearEL.appendChild(text);
+
+        var averageCostForModelAndKiloEL = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Average / Model and KM: "));
+        averageCostForModelAndKiloEL.appendChild(text);
+
+        var averageCostForModelAndTransmissionEL = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Average / Model & Transmission: "));
+        averageCostForModelAndTransmissionEL.appendChild(text);
+
+        var totalAverageCostPerKiloEL = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Total Average / KM: "));
+        totalAverageCostPerKiloEL.appendChild(text);
+
+        var totalAverageCostPerYearEL = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Total Average / Year: "));
+        totalAverageCostPerYearEL.appendChild(text);
+
+        var totalAverageCostEL = document.createElement('p');
+        text = document.createElement('b');
+        text.appendChild(document.createTextNode("Total Average: "));
+        totalAverageCostEL.appendChild(text);
+
+        totalAverageCostEL.appendChild(document.createElement('b', "Total Average Cost: " ))
+
         browser.storage.local.get(response[url].make, function(value) {
             // We can start off by simply assigning all of the data to the doc //
-            document.getElementById("make").innerHTML += response[url].make;
-            document.getElementById("year").innerHTML += response[url].year;
-            document.getElementById("model").innerHTML += response[url].model;
-            document.getElementById("milage").innerHTML += response[url].milage + " KM";
-            document.getElementById("cost").innerHTML += response[url].price;
-            document.getElementById("condition").innerHTML += response[url].condition;
+            make.appendChild(document.createTextNode(response[url].make));
+            year.appendChild(document.createTextNode(response[url].year));
+            model.appendChild(document.createTextNode(response[url].model));
+            milage.appendChild(document.createTextNode(response[url].milage + " KM"));
+            cost.appendChild(document.createTextNode(response[url].price));
+            condition.appendChild(document.createTextNode(response[url].condition));
             
             
             // These are some variables for summary values for our specific model //
@@ -117,13 +190,28 @@ function sendMessageToTabs(tabs) {
             totalAverageCost /= N;
 
             // Sets the remaining values for the calculations //
-            document.getElementById("averageCostForModel").innerHTML += "$" + Number(averageCostForModel).toFixed(2);
-            document.getElementById("averageCostForModelAndYear").innerHTML += "$" + Number(averageCostForModelAndYear).toFixed(2);
-            document.getElementById("averageCostForModelAndKilo").innerHTML += "$" + Number(averageCostForModelAndKilo).toFixed(2);
-            document.getElementById("averageCostForModelAndTransmission").innerHTML += "$" + Number(averageCostForModelAndTransmission).toFixed(2);
-            document.getElementById("totalAverageCostPerKilo").innerHTML += "$" + Number(totalAverageCostPerKilo).toFixed(2);
-            document.getElementById("totalAverageCostPerYear").innerHTML += "$" + Number(totalAverageCostPerYear).toFixed(2);
-            document.getElementById("totalAverageCost").innerHTML += "$" + Number(totalAverageCost).toFixed(2);
+            averageCostForModelEL.appendChild(document.createTextNode(Number(averageCostForModel).toFixed(2)));
+            averageCostForModelAndYearEL.appendChild(document.createTextNode(Number(averageCostForModelAndYear).toFixed(2)));
+            averageCostForModelAndKiloEL.appendChild(document.createTextNode(Number(averageCostForModelAndKilo).toFixed(2)));
+            averageCostForModelAndTransmissionEL.appendChild(document.createTextNode(Number(averageCostForModelAndTransmission).toFixed(2)));
+            totalAverageCostPerKiloEL.appendChild(document.createTextNode(Number(totalAverageCostPerKilo).toFixed(2)));
+            totalAverageCostPerYearEL.appendChild(document.createTextNode(Number(totalAverageCostPerYear).toFixed(2)));
+            totalAverageCostEL.appendChild(document.createTextNode(Number(totalAverageCost).toFixed(2)));
+
+            current.appendChild(make);
+            current.appendChild(year); 
+            current.appendChild(model); 
+            current.appendChild(milage);
+            current.appendChild(cost);
+            current.appendChild(condition);
+
+            historical.appendChild(averageCostForModelEL);
+            historical.appendChild(averageCostForModelAndYearEL);
+            historical.appendChild(averageCostForModelAndKiloEL);
+            historical.appendChild(averageCostForModelAndTransmissionEL);
+            historical.appendChild(totalAverageCostPerKiloEL);
+            historical.appendChild(totalAverageCostPerYearEL); 
+            historical.appendChild(totalAverageCostEL);
 
 
         });

@@ -3,7 +3,7 @@
   "manifest_version": 2,
   "name": "KijijiCheck",
   "description": "A tool that collects and compares items on kijiji.",
-  "version": "1.0",
+  "version": "1.1",
   "browser_specific_settings": {
     "gecko": {
       "id": "kijijiCheck@nesbitt.ca",
