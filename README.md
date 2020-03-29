@@ -16,8 +16,20 @@ add-on stores the cars you look at on kijiji and
 calculates the averages for certain models and gives
 you a rough statistical breakdown of previous ads.
 
-At the moment this add-on does not have full functionality and is intended as a POC. Over time
-I am hoping to add graphs and better analysis.
+At the moment this add-on does not have full functionality 
+and is intended as a POC. Over time I am hoping to add 
+graphs and better analysis.
+
+## How do I use it?
+
+Really simple!
+
+1. [Install the add-on](https://addons.mozilla.org/en-US/firefox/addon/kijijicheck/). 
+2. Visit some car ads on kijiji.
+3. While looking at an advertisement, click on the addon.
+
+This will display a summary of the current car vs. previous
+cars/advertisements.
 
 ## How does it work?
 
