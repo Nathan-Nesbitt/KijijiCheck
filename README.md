@@ -1,9 +1,9 @@
 # KijijiCheck 
- <a src="https://addons.mozilla.org/en-US/firefox/addon/kijijicheck/"><img src="icons/KijijiCheck.png"></a>
+ [<img src="icons/KijijiCheck.png">](https://addons.mozilla.org/en-US/firefox/addon/kijijicheck/)
 
  A tool that collects and compares items on kijiji.
  
- <a src="https://addons.mozilla.org/en-US/firefox/addon/kijijicheck/">Download the Add-On Here</a>
+ Download the Add-On [here](https://addons.mozilla.org/en-US/firefox/addon/kijijicheck/). 
 
 ## What does this do?
 
